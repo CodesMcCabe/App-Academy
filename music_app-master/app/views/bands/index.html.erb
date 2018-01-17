@@ -1,0 +1,8 @@
+<h2>Bands</h2>
+
+<a href="<%= new_band_url %>"><input type="submit" value="Add Band"></a>
+<ul>
+<% @bands.each do |band| %>
+  <li><a href="<%= band %>"<%= band.name %></li>
+<% end %>
+</ul>

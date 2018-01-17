@@ -1,0 +1,32 @@
+<%= @post.title %>
+<br>
+<%= @post.url %>
+<%= @post.content %>
+<%= @post.author.username %>
+<br>
+<% if @post.author == current_user %>
+  <a href="<%= edit_post_url %>">Edit this post</a>
+<% end %>
+
+<a href="<%=new_post_comment_url(@post)%>">Add Comment</a>
+
+<!-- temp -->
+<br>
+<label>Comments
+  <ul>
+    <% @post_all_comments.each do |p_comment| %>
+      <% if p_comment.parent_comment_id.nil? %>
+        <%= render '/comments/comment', comment: p_comment, post_all_comments: @post_all_comments %>
+      <% end %>
+    <% end %>
+  </ul>
+</label>
+
+<br><hr><br>
+<label>Sub-Reddits
+<ul>
+  <% @post.subs.each do |subred| %>
+    <li><a href="<%= sub_url(subred) %>"><%= subred.title %></a></li>
+  <% end %>
+</ul>
+</label>

@@ -1,0 +1,50 @@
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 5px;
+}
+
+.left-nav > ul,
+.right-nav > ul {
+  display: flex;
+  align-items: stretch;
+  
+}
+
+.left-nav > ul > li {
+  font-family: $sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin: 15px;
+}
+
+.right-nav > ul > li {
+}
+
+.right-nav > ul > li:last-of-type {
+  background-color: $lightest-gray;
+  position: relative;
+}
+
+.left-nav > ul > li:hover,
+.right-nav > ul > li:last-of-type:hover {
+  background-color: $lightest-gray;
+}
+
+// .right-nav > ul > li > button:last-of-type:hover {
+//   background-color: $light-gray;
+// } 
+
+.right-nav > ul > li:last-of-type > button:hover {
+  background-color: $light-gray;
+} 
+
+.left-nav span {
+  margin: 10px;
+}
+
+
+.right-nav i {
+  font-size: 15px;
+  color: black;
+}

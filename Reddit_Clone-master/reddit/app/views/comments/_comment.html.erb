@@ -1,0 +1,13 @@
+<!-- display comment + content -->
+<ul>
+  <li>
+    <a href="<%= comment_url(comment) %>">Link</a>
+    <%= comment.content %>
+  </li>
+<!-- for each child, render this partial -->
+  <% post_all_comments.each do |c_comment| %>
+    <% if c_comment.parent_comment_id == comment.id %>
+      <%= render '/comments/comment', comment: c_comment, post_all_comments: post_all_comments %>
+      <% end %>
+  <% end %>
+</ul>

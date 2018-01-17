@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MusicApp</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  <!-- can i add this into my css page? -->
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Play" rel="stylesheet">
+  </head>
+
+  <body>
+    <header>
+      <h1>Music App</h1>
+      <p class="login"> <!--  move up links and logout to upper right -->
+      <% if current_user %>
+        <p><a href="<%= bands_url %>"><%= current_user.email %></a></p>
+        <form  action="<%= session_url %>" method="post">
+          <%= render '/shared/auth_token' %>
+          <input type="hidden" name="_method" value="delete">
+          <input class="logout" type="submit" value="Logout">
+        </form>
+        <% else %>
+          <a class="sign-in" href="<%= new_user_url %>">Sign Up</a>
+          <a class="sign-in" href="<%= new_session_url %>">Sign In</a>
+      <% end %>
+      </p>
+    </header>
+
+    <br><br>
+
+    <br><br>
+    <%= yield %>
+  </body>
+</html>

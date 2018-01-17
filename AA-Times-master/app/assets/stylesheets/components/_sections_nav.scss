@@ -1,0 +1,25 @@
+.sections-nav{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.sections-nav ul{
+  display: flex;
+  align-items: center;
+}
+
+.sections-nav ul li {
+  margin: 5px;
+  align-items: center;
+  display: inline-block;
+}
+
+.sections-nav ul > li:hover {
+  background-color: $light-gray;
+}
+
+.sections-nav ul > li:last-of-type:hover {
+  text-decoration: underline;
+  background-color: transparent;
+}

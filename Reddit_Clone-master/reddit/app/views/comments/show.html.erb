@@ -1,0 +1,20 @@
+<%= @comment.content %>
+
+<ul>
+  <% @all_child_comments.each do |child_comment| %>
+    <%= render 'comments/comment', comment: child_comment, post_all_comments: @all_child_comments %>
+  <% end %>
+</ul>
+
+<a href="<%= post_url(@comment.post) %>">Back to Post</a>
+
+<strong><h3>Add Reply</h3></strong>
+<form action="<%= comments_url %>" method="post">
+  <%= auth_token %>
+  <input type="hidden" name="comment[post_id]" value="<%= @comment.post_id %>">
+  <input type="hidden" name="comment[parent_comment_id]" value="<%= @comment.id %>">
+  <label>Reply:
+  <textarea name="comment[content]" rows="8" cols="80"></textarea>
+  </label>
+  <input type="submit" value="Reply">
+</form>

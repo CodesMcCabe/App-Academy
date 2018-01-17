@@ -1,0 +1,14 @@
+<%= flash.now[:error] %>
+
+<h2>New User</h2>
+<form action="<%= users_url %>" method="post">
+  <%= render '/shared/auth_token' %>
+  <label>Email
+    <input type="text" name="user[email]" value="">
+  </label>
+  <label>Password
+    <input type="password" name="user[password]" value="">
+  </label>
+
+  <input type="submit" value="Create Account">
+</form>

@@ -1,0 +1,11 @@
+<%= flash.now[:duped_band] %>
+
+<h2>Add Band</h2>
+<form action="<%= bands_url %>" method="post">
+  <%= render '/shared/auth_token' %>
+  <label>Band
+    <input type="text" name="band[name]" value="">
+  </label>
+
+  <input type="submit" value="Add Band">
+</form>

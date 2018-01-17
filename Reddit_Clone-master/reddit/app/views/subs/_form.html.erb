@@ -1,0 +1,14 @@
+<form class="" action="<%= url %>" method="post">
+  <%= auth_token %>
+  <% if action == 'Update' %>
+    <input type="hidden" name="_method" value="PATCH">
+  <% end %>
+  <label>Title
+    <input type="text" name="sub[title]" value="<%= subred.title %>">
+  </label>
+  <label>Description
+    <input type="text" name="sub[description]" value="<%= subred.description %>">
+  </label>
+  
+  <input type="submit" name="" value="<%= action %> Sub">
+</form>
